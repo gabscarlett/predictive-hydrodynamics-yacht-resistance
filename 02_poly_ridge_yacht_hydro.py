@@ -1,5 +1,5 @@
 """
-Predictive Hydrodynamics: Polynomial Ridge Regression (PRR) for Yacht Resistance
+Polynomial pipeline and coefficient extraction.
 
 This script implements a pipeline to investigate how hull geometry
 modifies the dominant Froude number signal in residuary resistance prediction.
@@ -96,8 +96,8 @@ if __name__ == "__main__":
 
     # Interpret the coefficients and interactions
     coef_summary = inspect_coefficients(best_pipeline)
-    print("\nTop 5 Feature Interactions (Physical Modifiers):")
-    print(coef_summary.head(5))
+    print("\nTop 10 Feature Interactions (Physical Modifiers):")
+    print(coef_summary.head(10))
 
     # Final Visualisation
     plot_model_performance(best_pipeline, X, y)

@@ -1,5 +1,5 @@
 """
-Exploratory Data Analysis (EDA) for Yacht Hydrodynamics.
+Baseline data investigation and correlation analysis.
 
 This script performs a preliminary investigation into the Yacht Hydrodynamics 
 Dataset to establish baseline linear relationships between hull geometry, 

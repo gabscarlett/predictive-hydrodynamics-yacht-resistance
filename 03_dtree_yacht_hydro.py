@@ -1,5 +1,5 @@
 """
-YachtResistanceModel: Modular Hydrodynamics Predictive Template
+Final object-oriented Decision Tree architecture.
 
 This module provides a framework for modelling the Residuary Resistance (Rr)
 of sailing yachts. It employs Scikit-learn pipeline architecture to capture the 
@@ -228,7 +228,7 @@ class YachtResistanceModel:
 
         Parameters
         ----------
-        X : pandas.DataFrame or array-like
+        X : pandas.DataFrame or numpy.ndarray
             Input data used for calculating partial dependence.
         features : list of tuples, str, or int
             The features to target for interaction (e.g., [('PC', 'Fr')]).
