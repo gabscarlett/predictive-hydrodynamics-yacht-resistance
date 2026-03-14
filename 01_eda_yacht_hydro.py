@@ -32,7 +32,7 @@ if __name__ == "__main__":
     plt.title('Correlation Coefficient Matrix')
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig('assets/eda_corr_matrix.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/correlation_martix.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Plot 2: Geometry Sensitivity Bar Chart
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     plt.xticks(rotation=45)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
-    plt.savefig('assets/eda_geo_sensitivity.png', dpi=300, bbox_inches='tight')
+    plt.savefig('assets/geometry_sensitivity.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Plot 3: Froude Number vs Resistance Scatter - FIXED
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     plt.ylabel('Resistance')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig('assets/eda_scatter.png', dpi=300, bbox_inches='tight')
+    plt.savefig('froude_vs_resistance.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Keep plots open
