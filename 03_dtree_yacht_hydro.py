@@ -273,12 +273,15 @@ if __name__ == "__main__":
 
     # 3. Visualisation: Validation Curve
     fig_val, ax_val = model.plot_validation_curve(X_train, y_train)
+    plt.savefig('assets/validation_curve.png', dpi=300, bbox_inches='tight')
     plt.show()
 
     # 4. Visualisation: Feature Importances
     fig_feat, ax_feat = model.plot_feature_importances(feature_columns)
+    plt.savefig('assets/feature_importance.png', dpi=300, bbox_inches='tight')
     plt.show()
 
     # 5. Visualisation: Partial Dependence
     fig_pd, ax_pd = model.plot_partial_dependence(X_train, features=[('Prismatic_coeff', 'Froude_number')])
+    plt.savefig('assets/partial_dependence', dpi=300, bbox_inches='tight')
     plt.show()
