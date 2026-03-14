@@ -80,6 +80,7 @@ def plot_model_performance(model, X, y):
     ax2.grid(True, alpha=0.3)
 
     plt.tight_layout()
+    plt.savefig('assets/prr_performance.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -101,3 +102,4 @@ if __name__ == "__main__":
 
     # Final Visualisation
     plot_model_performance(best_pipeline, X, y)
+    
