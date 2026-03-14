@@ -29,8 +29,10 @@ if __name__ == "__main__":
     # Plot 1: Correlation Heatmap
     plt.figure(figsize=(10, 8))
     sns.heatmap(corr_mat, annot=True, cmap='coolwarm', fmt=".2f", center=0)
-    plt.title('Yacht Hull Coefficient Correlation Matrix')
+    plt.title('Correlation Coefficient Matrix')
+    plt.xticks(rotation=45)
     plt.tight_layout()
+    plt.savefig('assets/eda_corr_matrix.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Plot 2: Geometry Sensitivity Bar Chart
@@ -39,10 +41,11 @@ if __name__ == "__main__":
     geometry_sensitivity.plot(kind='bar', color='teal')
     plt.title('Resistance Sensitivity Analysis (Geometry Only)')
     plt.ylabel('Correlation Coefficient')
-    plt.xlabel('Hull Parameters')
+    #plt.xlabel('Hull Parameters')
     plt.xticks(rotation=45)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
+    plt.savefig('assets/eda_geo_sensitivity.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Plot 3: Froude Number vs Resistance Scatter - FIXED
@@ -54,6 +57,7 @@ if __name__ == "__main__":
     plt.ylabel('Resistance')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
+    plt.savefig('assets/eda_scatter.png', dpi=300, bbox_inches='tight')
     plt.show(block=False)
     
     # Keep plots open
