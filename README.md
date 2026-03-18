@@ -50,7 +50,7 @@ To capture the non-linear spike identified in the EDA, the first predictive mode
 Looking at the validation plots below, the model appears to be a massive success. It achieves a near-perfect fit (left) and beautifully captures both the exponential wall and the geometry-induced variance at high Froude numbers (right).
 
 ![PRR Performance](assets/prr_performance.png)
-*(Note: Polynomial Ridge Regression performance. Highly accurate, but mathematically abstracted.)*
+*Note: Polynomial Ridge Regression performance. Near-perfect fit, but mathematically abstracted.*
 
 However, while this model achieved an excellent $R^2$ score, it failed the "Engineering Interpretability" test. Extracting the model's coefficients revealed an uninterpretable soup of high-degree interactions:
 ```text
@@ -59,7 +59,7 @@ Froude_number^4                                      172.93
 Beam_draught_ratio^2 * Froude_number^2                30.23
 Prismatic_coeff * Beam_draught_ratio * Froude_number  29.64
 ```
-In engineering, if a model relies heavily on a massive $Fr^4$ coefficient to force a curve to fit, it is acting as a mathematical black-box. It memorised the curve rather than capturing true, explainable hydrodynamic interactions. 
+If a model relies heavily on a massive $Fr^4$ coefficient to force a curve fit, it is acting as a mathematical black-box. It memorised the curve rather than capturing true, explainable hydrodynamic interactions. 
 
 ### Part 3: A Physics-Based Approach (`03_dtree_yacht_hydro.py`)
 To regain interpretability without sacrificing accuracy, the final architecture relies on an object-oriented **Decision Tree Regressor** pipeline. Tree-based models are inherently suited to this problem because they construct threshold-based logic (e.g., `IF Fr > 0.3 THEN ...`), perfectly mimicking the physical "regime shift" of the hull.
@@ -75,12 +75,12 @@ Unlike the polynomial model, the Decision Tree allows us to isolate the exact dr
 
 ![Feature Importance](assets/feature_importance.png)
 
-Finally, generating a 2D Partial Dependence plot for Froude Number vs. Prismatic Coefficient provides the ultimate validation of our engineering hypothesis:
-* Look at the lower half of the plot (Fr < 0.35): The contour lines are completely horizontal. This mathematically proves that at low speeds, hull geometry has almost zero impact on residuary resistance. 
-* Look at the top of the plot (Fr > 0.40): The contours shift vertically, demonstrating that as the yacht enters the wave-making regime, the Prismatic Coefficient actively modifies the total resistance.
+Finally, generating a 2D Partial Dependence plot for Froude Number vs. Prismatic Coefficient confirms the engineering hypothesis:
+* Observe the lower half of the plot (Fr < 0.35): The contour lines are completely horizontal. This mathematically proves that at low speeds, hull geometry has almost zero impact on residuary resistance. 
+* At the top of the plot (Fr > 0.40): The contours shift vertically, demonstrating that as the yacht enters the wave-making regime, the Prismatic Coefficient actively modifies the total resistance.
 
 ![Partial Dependence](assets/partial_dependence.png)
-*(Note: Decision Tree Partial Dependence plot validating that geometry alters resistance exclusively in the high Froude Number regime)*
+*Note: Decision Tree Partial Dependence plot validating that geometry alters resistance exclusively in the high Froude Number regime*
 
 ---
 
@@ -95,7 +95,7 @@ Finally, generating a 2D Partial Dependence plot for Froude Number vs. Prismatic
 ## 🚀 Quick Start
 To run the models and generate the plots locally:
 ```bash
-git clone https://github.com/yourusername/yacht-hydro-prediction.git
+git clone https://github.com/gabscarlett/yacht-hydro-prediction.git
 cd yacht-hydro-prediction
 pip install -r requirements.txt
 
