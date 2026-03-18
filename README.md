@@ -42,12 +42,12 @@ However, visualising the data reveals why linear metrics fail. The **Scatter Plo
 More importantly, look at the vertical spread of the data at Fr > 0.4. That massive variance is caused by hull geometry. Geometry *does* matter, but only as a conditional modifier at high speeds: **a relationship not captured by single-value linear correlation**.
 
 ![Froude vs Resistance](assets/froude_vs_resistance.png)
-*(Note: Resistance vs. Froude Number showing the wave-making resistance wall and high-speed variance)*
+*Note: Resistance vs. Froude Number showing the wave-making resistance wall and high-speed variance*
 
 ### Part 2: A Purely Mathematical Approach (`02_poly_ridge_yacht_hydro.py`)
-To capture the non-linear spike identified in the EDA, the first predictive model utilised **Polynomial Ridge Regression (PRR)**. A pipeline was built using `PolynomialFeatures` and `GridSearchCV` to tune regularisation. 
+To capture the non-linear spike identified in the data analysis, the first predictive model utilised **Polynomial Ridge Regression (PRR)**. A pipeline was built using `PolynomialFeatures` and `GridSearchCV` to tune regularisation. 
 
-Looking at the validation plots below, the model appears to be a massive success. It achieves a near-perfect fit (left) and beautifully captures both the exponential wall and the geometry-induced variance at high Froude numbers (right).
+Looking at the validation plots below, the model appears to be a massive success. It achieves a near-perfect fit (left) and captures both the exponential wall and the geometry-induced variance at high Froude numbers (right).
 
 ![PRR Performance](assets/prr_performance.png)
 *Note: Polynomial Ridge Regression performance. Near-perfect fit, but mathematically abstracted.*
